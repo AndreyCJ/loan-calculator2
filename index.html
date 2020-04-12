@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Налоговый калькулятор</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="AppName">Налоговый калькулятор</h1>
+        <form onsubmit="return false">
+            <div class="row">
+                <div class="col-25">
+                    <label for="incomeFirstMonth">Доход за 1 месяц: </label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="incomeFirstMonth" name="incomeFirstMonth" placeholder="" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="lname">Полученный доход:</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="givenIncome" name="givenIncome" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="country">Количество детей до 18 лет:</label>
+                </div>
+                <div class="col-75">
+                    <select id="amountOfChildren" name="amountOfChildren">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="country">Является ли семья полной:</label>
+                </div>
+                <div class="col-75">
+                    <select id="isFamilyFull" name="isFamilyFull">
+                        <option value="true">Является</option>
+                        <option value="false">Не является</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row result">
+                <div class="col-25">
+                    <label for="loan">Подоходный налог: </label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="loan" name="loan" disabled>
+                </div>
+            </div>
+            <div class="row result">
+                <div class="col-25">
+                    <label for="loanMonth">Чистый доход за месяц: </label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="loanMonth" name="loanMonth" disabled>
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" id="submit" value="Рассчитать">
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function(reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+        });
+    }
+</script>
+<script src="app.js"></script>
+
+</html>
